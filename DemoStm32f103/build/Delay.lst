@@ -1,0 +1,254 @@
+ARM GAS  /tmp/ccK7adJh.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"Delay.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.delay_init,"ax",%progbits
+  20              		.align	2
+  21              		.global	delay_init
+  22              		.thumb
+  23              		.thumb_func
+  25              	delay_init:
+  26              	.LFB65:
+  27              		.file 1 "MyCode/Delay.c"
+   1:MyCode/Delay.c **** #include "Delay.h"
+   2:MyCode/Delay.c **** #include "main.h"
+   3:MyCode/Delay.c **** 
+   4:MyCode/Delay.c **** static unsigned int fac_us = 0;
+   5:MyCode/Delay.c **** 
+   6:MyCode/Delay.c **** void delay_init(unsigned int sysClk)
+   7:MyCode/Delay.c **** {
+  28              		.loc 1 7 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              	.LVL0:
+  33 0000 10B5     		push	{r4, lr}
+  34              	.LCFI0:
+  35              		.cfi_def_cfa_offset 8
+  36              		.cfi_offset 4, -8
+  37              		.cfi_offset 14, -4
+  38 0002 0446     		mov	r4, r0
+   8:MyCode/Delay.c ****     HAL_SYSTICK_CLKSourceConfig(SYSTICK_CLKSOURCE_HCLK);
+  39              		.loc 1 8 0
+  40 0004 0420     		movs	r0, #4
+  41              	.LVL1:
+  42 0006 FFF7FEFF 		bl	HAL_SYSTICK_CLKSourceConfig
+  43              	.LVL2:
+   9:MyCode/Delay.c ****     fac_us = sysClk;
+  44              		.loc 1 9 0
+  45 000a 014B     		ldr	r3, .L3
+  46 000c 1C60     		str	r4, [r3]
+  47 000e 10BD     		pop	{r4, pc}
+  48              	.LVL3:
+  49              	.L4:
+ARM GAS  /tmp/ccK7adJh.s 			page 2
+
+
+  50              		.align	2
+  51              	.L3:
+  52 0010 00000000 		.word	.LANCHOR0
+  53              		.cfi_endproc
+  54              	.LFE65:
+  56              		.section	.text.delay_us,"ax",%progbits
+  57              		.align	2
+  58              		.global	delay_us
+  59              		.thumb
+  60              		.thumb_func
+  62              	delay_us:
+  63              	.LFB66:
+  10:MyCode/Delay.c **** }
+  11:MyCode/Delay.c **** 
+  12:MyCode/Delay.c **** void delay_us(unsigned int nus)
+  13:MyCode/Delay.c **** {
+  64              		.loc 1 13 0
+  65              		.cfi_startproc
+  66              		@ args = 0, pretend = 0, frame = 0
+  67              		@ frame_needed = 0, uses_anonymous_args = 0
+  68              		@ link register save eliminated.
+  69              	.LVL4:
+  70 0000 30B4     		push	{r4, r5}
+  71              	.LCFI1:
+  72              		.cfi_def_cfa_offset 8
+  73              		.cfi_offset 4, -8
+  74              		.cfi_offset 5, -4
+  75              	.LVL5:
+  14:MyCode/Delay.c ****     unsigned int ticks;
+  15:MyCode/Delay.c ****     unsigned int tOld, tNow, tCnt = 0;
+  16:MyCode/Delay.c ****     unsigned int reload = SysTick->LOAD;
+  76              		.loc 1 16 0
+  77 0002 0C4A     		ldr	r2, .L11
+  78 0004 5568     		ldr	r5, [r2, #4]
+  79              	.LVL6:
+  17:MyCode/Delay.c **** 
+  18:MyCode/Delay.c ****     ticks = nus * fac_us;
+  80              		.loc 1 18 0
+  81 0006 0C4B     		ldr	r3, .L11+4
+  82 0008 1B68     		ldr	r3, [r3]
+  83 000a 00FB03F0 		mul	r0, r0, r3
+  84              	.LVL7:
+  19:MyCode/Delay.c ****     tOld = SysTick->VAL;
+  85              		.loc 1 19 0
+  86 000e 9368     		ldr	r3, [r2, #8]
+  87              	.LVL8:
+  15:MyCode/Delay.c ****     unsigned int reload = SysTick->LOAD;
+  88              		.loc 1 15 0
+  89 0010 0021     		movs	r1, #0
+  90              	.LVL9:
+  91              	.L9:
+  92 0012 1A46     		mov	r2, r3
+  93              	.LVL10:
+  94              	.L6:
+  20:MyCode/Delay.c **** 
+  21:MyCode/Delay.c ****     while(1) {
+  22:MyCode/Delay.c ****         tNow = SysTick->VAL;
+ARM GAS  /tmp/ccK7adJh.s 			page 3
+
+
+  95              		.loc 1 22 0
+  96 0014 074B     		ldr	r3, .L11
+  97 0016 9B68     		ldr	r3, [r3, #8]
+  98              	.LVL11:
+  23:MyCode/Delay.c ****         if (tNow != tOld) {
+  99              		.loc 1 23 0
+ 100 0018 9A42     		cmp	r2, r3
+ 101 001a FBD0     		beq	.L6
+  24:MyCode/Delay.c ****             if (tNow < tOld) tCnt += tOld - tNow;
+ 102              		.loc 1 24 0
+ 103 001c 02D9     		bls	.L7
+ 104              		.loc 1 24 0 is_stmt 0 discriminator 1
+ 105 001e D21A     		subs	r2, r2, r3
+ 106 0020 1144     		add	r1, r1, r2
+ 107              	.LVL12:
+ 108 0022 02E0     		b	.L8
+ 109              	.L7:
+  25:MyCode/Delay.c ****             else tCnt += reload - tNow + tOld;
+ 110              		.loc 1 25 0 is_stmt 1
+ 111 0024 EC1A     		subs	r4, r5, r3
+ 112 0026 2244     		add	r2, r2, r4
+ 113 0028 1144     		add	r1, r1, r2
+ 114              	.LVL13:
+ 115              	.L8:
+  26:MyCode/Delay.c ****             tOld = tNow;
+  27:MyCode/Delay.c ****             if (tCnt >= ticks)
+ 116              		.loc 1 27 0
+ 117 002a 8142     		cmp	r1, r0
+ 118 002c F1D3     		bcc	.L9
+  28:MyCode/Delay.c ****                 break;
+  29:MyCode/Delay.c ****         }
+  30:MyCode/Delay.c ****     }
+  31:MyCode/Delay.c **** }
+ 119              		.loc 1 31 0
+ 120 002e 30BC     		pop	{r4, r5}
+ 121              	.LCFI2:
+ 122              		.cfi_restore 5
+ 123              		.cfi_restore 4
+ 124              		.cfi_def_cfa_offset 0
+ 125              	.LVL14:
+ 126 0030 7047     		bx	lr
+ 127              	.L12:
+ 128 0032 00BF     		.align	2
+ 129              	.L11:
+ 130 0034 10E000E0 		.word	-536813552
+ 131 0038 00000000 		.word	.LANCHOR0
+ 132              		.cfi_endproc
+ 133              	.LFE66:
+ 135              		.section	.text.delay_ms,"ax",%progbits
+ 136              		.align	2
+ 137              		.global	delay_ms
+ 138              		.thumb
+ 139              		.thumb_func
+ 141              	delay_ms:
+ 142              	.LFB67:
+  32:MyCode/Delay.c **** void delay_ms(unsigned int nms)
+  33:MyCode/Delay.c **** {
+ARM GAS  /tmp/ccK7adJh.s 			page 4
+
+
+ 143              		.loc 1 33 0
+ 144              		.cfi_startproc
+ 145              		@ args = 0, pretend = 0, frame = 0
+ 146              		@ frame_needed = 0, uses_anonymous_args = 0
+ 147              	.LVL15:
+ 148 0000 38B5     		push	{r3, r4, r5, lr}
+ 149              	.LCFI3:
+ 150              		.cfi_def_cfa_offset 16
+ 151              		.cfi_offset 3, -16
+ 152              		.cfi_offset 4, -12
+ 153              		.cfi_offset 5, -8
+ 154              		.cfi_offset 14, -4
+ 155 0002 0546     		mov	r5, r0
+ 156              	.LVL16:
+  34:MyCode/Delay.c ****     unsigned int i;
+  35:MyCode/Delay.c **** 
+  36:MyCode/Delay.c ****     for (i = 0; i < nms; i++)
+ 157              		.loc 1 36 0
+ 158 0004 0024     		movs	r4, #0
+ 159 0006 04E0     		b	.L14
+ 160              	.LVL17:
+ 161              	.L15:
+  37:MyCode/Delay.c ****         delay_us(1000);
+ 162              		.loc 1 37 0 discriminator 3
+ 163 0008 4FF47A70 		mov	r0, #1000
+ 164 000c FFF7FEFF 		bl	delay_us
+ 165              	.LVL18:
+  36:MyCode/Delay.c ****         delay_us(1000);
+ 166              		.loc 1 36 0 discriminator 3
+ 167 0010 0134     		adds	r4, r4, #1
+ 168              	.LVL19:
+ 169              	.L14:
+  36:MyCode/Delay.c ****         delay_us(1000);
+ 170              		.loc 1 36 0 is_stmt 0 discriminator 1
+ 171 0012 AC42     		cmp	r4, r5
+ 172 0014 F8D3     		bcc	.L15
+  38:MyCode/Delay.c **** }
+ 173              		.loc 1 38 0 is_stmt 1
+ 174 0016 38BD     		pop	{r3, r4, r5, pc}
+ 175              		.cfi_endproc
+ 176              	.LFE67:
+ 178              		.section	.bss.fac_us,"aw",%nobits
+ 179              		.align	2
+ 180              		.set	.LANCHOR0,. + 0
+ 183              	fac_us:
+ 184 0000 00000000 		.space	4
+ 185              		.text
+ 186              	.Letext0:
+ 187              		.file 2 "/opt/gcc-arm-none-eabi/arm-none-eabi/include/machine/_default_types.h"
+ 188              		.file 3 "/opt/gcc-arm-none-eabi/arm-none-eabi/include/sys/_stdint.h"
+ 189              		.file 4 "Drivers/CMSIS/Include/core_cm3.h"
+ 190              		.file 5 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h"
+ARM GAS  /tmp/ccK7adJh.s 			page 5
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 Delay.c
+     /tmp/ccK7adJh.s:20     .text.delay_init:00000000 $t
+     /tmp/ccK7adJh.s:25     .text.delay_init:00000000 delay_init
+     /tmp/ccK7adJh.s:52     .text.delay_init:00000010 $d
+     /tmp/ccK7adJh.s:57     .text.delay_us:00000000 $t
+     /tmp/ccK7adJh.s:62     .text.delay_us:00000000 delay_us
+     /tmp/ccK7adJh.s:130    .text.delay_us:00000034 $d
+     /tmp/ccK7adJh.s:136    .text.delay_ms:00000000 $t
+     /tmp/ccK7adJh.s:141    .text.delay_ms:00000000 delay_ms
+     /tmp/ccK7adJh.s:179    .bss.fac_us:00000000 $d
+     /tmp/ccK7adJh.s:183    .bss.fac_us:00000000 fac_us
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+HAL_SYSTICK_CLKSourceConfig

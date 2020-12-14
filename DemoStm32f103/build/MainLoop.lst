@@ -1,0 +1,503 @@
+ARM GAS  /tmp/cceGbsGe.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"MainLoop.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.task_10Ms,"ax",%progbits
+  20              		.align	2
+  21              		.global	task_10Ms
+  22              		.thumb
+  23              		.thumb_func
+  25              	task_10Ms:
+  26              	.LFB65:
+  27              		.file 1 "MyCode/MainLoop.c"
+   1:MyCode/MainLoop.c **** #include "MainLoop.h"
+   2:MyCode/MainLoop.c **** #include "Debug.h"
+   3:MyCode/MainLoop.c **** #include "main.h"
+   4:MyCode/MainLoop.c **** #include "Delay.h"
+   5:MyCode/MainLoop.c **** 
+   6:MyCode/MainLoop.c **** void task_10Ms(unsigned int tickMs)
+   7:MyCode/MainLoop.c **** {
+  28              		.loc 1 7 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33              	.LVL0:
+   8:MyCode/MainLoop.c ****     static unsigned int lastTick;
+   9:MyCode/MainLoop.c **** 
+  10:MyCode/MainLoop.c ****     if (tickMs - lastTick >= 10) {
+  34              		.loc 1 10 0
+  35 0000 034B     		ldr	r3, .L3
+  36 0002 1B68     		ldr	r3, [r3]
+  37 0004 C31A     		subs	r3, r0, r3
+  38 0006 092B     		cmp	r3, #9
+  39 0008 01D9     		bls	.L1
+  11:MyCode/MainLoop.c **** 
+  12:MyCode/MainLoop.c ****         lastTick = tickMs;
+  40              		.loc 1 12 0
+  41 000a 014B     		ldr	r3, .L3
+  42 000c 1860     		str	r0, [r3]
+  43              	.L1:
+  44 000e 7047     		bx	lr
+  45              	.L4:
+  46              		.align	2
+ARM GAS  /tmp/cceGbsGe.s 			page 2
+
+
+  47              	.L3:
+  48 0010 00000000 		.word	.LANCHOR0
+  49              		.cfi_endproc
+  50              	.LFE65:
+  52              		.section	.text.task_50Ms,"ax",%progbits
+  53              		.align	2
+  54              		.global	task_50Ms
+  55              		.thumb
+  56              		.thumb_func
+  58              	task_50Ms:
+  59              	.LFB66:
+  13:MyCode/MainLoop.c ****     }
+  14:MyCode/MainLoop.c **** 
+  15:MyCode/MainLoop.c ****     return;
+  16:MyCode/MainLoop.c **** }
+  17:MyCode/MainLoop.c **** 
+  18:MyCode/MainLoop.c **** void task_50Ms(unsigned int tickMs)
+  19:MyCode/MainLoop.c **** {
+  60              		.loc 1 19 0
+  61              		.cfi_startproc
+  62              		@ args = 0, pretend = 0, frame = 0
+  63              		@ frame_needed = 0, uses_anonymous_args = 0
+  64              		@ link register save eliminated.
+  65              	.LVL1:
+  20:MyCode/MainLoop.c ****     static unsigned int lastTick;
+  21:MyCode/MainLoop.c **** 
+  22:MyCode/MainLoop.c ****     if (tickMs - lastTick >= 50) {
+  66              		.loc 1 22 0
+  67 0000 034B     		ldr	r3, .L7
+  68 0002 1B68     		ldr	r3, [r3]
+  69 0004 C31A     		subs	r3, r0, r3
+  70 0006 312B     		cmp	r3, #49
+  71 0008 01D9     		bls	.L5
+  23:MyCode/MainLoop.c **** 
+  24:MyCode/MainLoop.c ****         lastTick = tickMs;
+  72              		.loc 1 24 0
+  73 000a 014B     		ldr	r3, .L7
+  74 000c 1860     		str	r0, [r3]
+  75              	.L5:
+  76 000e 7047     		bx	lr
+  77              	.L8:
+  78              		.align	2
+  79              	.L7:
+  80 0010 00000000 		.word	.LANCHOR1
+  81              		.cfi_endproc
+  82              	.LFE66:
+  84              		.section	.text.task_100Ms,"ax",%progbits
+  85              		.align	2
+  86              		.global	task_100Ms
+  87              		.thumb
+  88              		.thumb_func
+  90              	task_100Ms:
+  91              	.LFB67:
+  25:MyCode/MainLoop.c ****     }
+  26:MyCode/MainLoop.c **** 
+  27:MyCode/MainLoop.c ****     return;
+  28:MyCode/MainLoop.c **** }
+ARM GAS  /tmp/cceGbsGe.s 			page 3
+
+
+  29:MyCode/MainLoop.c **** 
+  30:MyCode/MainLoop.c **** void task_100Ms(unsigned int tickMs)
+  31:MyCode/MainLoop.c **** {
+  92              		.loc 1 31 0
+  93              		.cfi_startproc
+  94              		@ args = 0, pretend = 0, frame = 0
+  95              		@ frame_needed = 0, uses_anonymous_args = 0
+  96              		@ link register save eliminated.
+  97              	.LVL2:
+  32:MyCode/MainLoop.c ****     static unsigned int lastTick;
+  33:MyCode/MainLoop.c **** 
+  34:MyCode/MainLoop.c ****     if (tickMs - lastTick >= 100) {
+  98              		.loc 1 34 0
+  99 0000 034B     		ldr	r3, .L11
+ 100 0002 1B68     		ldr	r3, [r3]
+ 101 0004 C31A     		subs	r3, r0, r3
+ 102 0006 632B     		cmp	r3, #99
+ 103 0008 01D9     		bls	.L9
+  35:MyCode/MainLoop.c **** 
+  36:MyCode/MainLoop.c ****         lastTick = tickMs;
+ 104              		.loc 1 36 0
+ 105 000a 014B     		ldr	r3, .L11
+ 106 000c 1860     		str	r0, [r3]
+ 107              	.L9:
+ 108 000e 7047     		bx	lr
+ 109              	.L12:
+ 110              		.align	2
+ 111              	.L11:
+ 112 0010 00000000 		.word	.LANCHOR2
+ 113              		.cfi_endproc
+ 114              	.LFE67:
+ 116              		.section	.text.task_500Ms,"ax",%progbits
+ 117              		.align	2
+ 118              		.global	task_500Ms
+ 119              		.thumb
+ 120              		.thumb_func
+ 122              	task_500Ms:
+ 123              	.LFB68:
+  37:MyCode/MainLoop.c ****     }
+  38:MyCode/MainLoop.c **** 
+  39:MyCode/MainLoop.c ****     return;
+  40:MyCode/MainLoop.c **** }
+  41:MyCode/MainLoop.c **** 
+  42:MyCode/MainLoop.c **** void task_500Ms(unsigned int tickMs)
+  43:MyCode/MainLoop.c **** {
+ 124              		.loc 1 43 0
+ 125              		.cfi_startproc
+ 126              		@ args = 0, pretend = 0, frame = 0
+ 127              		@ frame_needed = 0, uses_anonymous_args = 0
+ 128              	.LVL3:
+  44:MyCode/MainLoop.c ****     static unsigned int lastTick;
+  45:MyCode/MainLoop.c **** 
+  46:MyCode/MainLoop.c ****     if (tickMs - lastTick >= 500) {
+ 129              		.loc 1 46 0
+ 130 0000 084B     		ldr	r3, .L17
+ 131 0002 1B68     		ldr	r3, [r3]
+ 132 0004 C31A     		subs	r3, r0, r3
+ARM GAS  /tmp/cceGbsGe.s 			page 4
+
+
+ 133 0006 B3F5FA7F 		cmp	r3, #500
+ 134 000a 09D3     		bcc	.L16
+  43:MyCode/MainLoop.c ****     static unsigned int lastTick;
+ 135              		.loc 1 43 0
+ 136 000c 10B5     		push	{r4, lr}
+ 137              	.LCFI0:
+ 138              		.cfi_def_cfa_offset 8
+ 139              		.cfi_offset 4, -8
+ 140              		.cfi_offset 14, -4
+ 141 000e 0446     		mov	r4, r0
+  47:MyCode/MainLoop.c **** 
+  48:MyCode/MainLoop.c ****         HAL_GPIO_TogglePin(RUN_LED_GPIO_Port, RUN_LED_Pin);
+ 142              		.loc 1 48 0
+ 143 0010 4FF40051 		mov	r1, #8192
+ 144 0014 0448     		ldr	r0, .L17+4
+ 145              	.LVL4:
+ 146 0016 FFF7FEFF 		bl	HAL_GPIO_TogglePin
+ 147              	.LVL5:
+  49:MyCode/MainLoop.c **** 
+  50:MyCode/MainLoop.c ****         lastTick = tickMs;
+ 148              		.loc 1 50 0
+ 149 001a 024B     		ldr	r3, .L17
+ 150 001c 1C60     		str	r4, [r3]
+ 151 001e 10BD     		pop	{r4, pc}
+ 152              	.LVL6:
+ 153              	.L16:
+ 154              	.LCFI1:
+ 155              		.cfi_def_cfa_offset 0
+ 156              		.cfi_restore 4
+ 157              		.cfi_restore 14
+ 158 0020 7047     		bx	lr
+ 159              	.L18:
+ 160 0022 00BF     		.align	2
+ 161              	.L17:
+ 162 0024 00000000 		.word	.LANCHOR3
+ 163 0028 00100140 		.word	1073811456
+ 164              		.cfi_endproc
+ 165              	.LFE68:
+ 167              		.section	.text.task_1000Ms,"ax",%progbits
+ 168              		.align	2
+ 169              		.global	task_1000Ms
+ 170              		.thumb
+ 171              		.thumb_func
+ 173              	task_1000Ms:
+ 174              	.LFB69:
+  51:MyCode/MainLoop.c ****     }
+  52:MyCode/MainLoop.c **** 
+  53:MyCode/MainLoop.c ****     return;
+  54:MyCode/MainLoop.c **** }
+  55:MyCode/MainLoop.c **** 
+  56:MyCode/MainLoop.c **** void task_1000Ms(unsigned int tickMs)
+  57:MyCode/MainLoop.c **** {
+ 175              		.loc 1 57 0
+ 176              		.cfi_startproc
+ 177              		@ args = 0, pretend = 0, frame = 32
+ 178              		@ frame_needed = 0, uses_anonymous_args = 0
+ 179              	.LVL7:
+ARM GAS  /tmp/cceGbsGe.s 			page 5
+
+
+ 180 0000 10B5     		push	{r4, lr}
+ 181              	.LCFI2:
+ 182              		.cfi_def_cfa_offset 8
+ 183              		.cfi_offset 4, -8
+ 184              		.cfi_offset 14, -4
+ 185 0002 88B0     		sub	sp, sp, #32
+ 186              	.LCFI3:
+ 187              		.cfi_def_cfa_offset 40
+ 188 0004 0446     		mov	r4, r0
+  58:MyCode/MainLoop.c ****     static unsigned int lastTick;
+  59:MyCode/MainLoop.c **** 
+  60:MyCode/MainLoop.c ****     char strBuf[32] = {'\0'};
+ 189              		.loc 1 60 0
+ 190 0006 2022     		movs	r2, #32
+ 191 0008 0021     		movs	r1, #0
+ 192 000a 6846     		mov	r0, sp
+ 193              	.LVL8:
+ 194 000c FFF7FEFF 		bl	memset
+ 195              	.LVL9:
+  61:MyCode/MainLoop.c ****     if (tickMs - lastTick >= 1000) {
+ 196              		.loc 1 61 0
+ 197 0010 0A4B     		ldr	r3, .L22
+ 198 0012 1B68     		ldr	r3, [r3]
+ 199 0014 E31A     		subs	r3, r4, r3
+ 200 0016 B3F57A7F 		cmp	r3, #1000
+ 201 001a 0CD3     		bcc	.L19
+ 202              	.LBB2:
+  62:MyCode/MainLoop.c ****         sprintf(strBuf, "tickMs = %d", tickMs);
+ 203              		.loc 1 62 0
+ 204 001c 2246     		mov	r2, r4
+ 205 001e 0849     		ldr	r1, .L22+4
+ 206 0020 6846     		mov	r0, sp
+ 207 0022 FFF7FEFF 		bl	sprintf
+ 208              	.LVL10:
+  63:MyCode/MainLoop.c ****         debug_str(strBuf);
+ 209              		.loc 1 63 0
+ 210 0026 6846     		mov	r0, sp
+ 211 0028 FFF7FEFF 		bl	debug_str
+ 212              	.LVL11:
+  64:MyCode/MainLoop.c ****         debug_str("hello world\r\n");
+ 213              		.loc 1 64 0
+ 214 002c 0548     		ldr	r0, .L22+8
+ 215 002e FFF7FEFF 		bl	debug_str
+ 216              	.LVL12:
+  65:MyCode/MainLoop.c **** 
+  66:MyCode/MainLoop.c ****         lastTick = tickMs;
+ 217              		.loc 1 66 0
+ 218 0032 024B     		ldr	r3, .L22
+ 219 0034 1C60     		str	r4, [r3]
+ 220              	.L19:
+ 221              	.LBE2:
+  67:MyCode/MainLoop.c ****     }
+  68:MyCode/MainLoop.c **** 
+  69:MyCode/MainLoop.c ****     return;
+  70:MyCode/MainLoop.c **** }
+ 222              		.loc 1 70 0
+ 223 0036 08B0     		add	sp, sp, #32
+ARM GAS  /tmp/cceGbsGe.s 			page 6
+
+
+ 224              	.LCFI4:
+ 225              		.cfi_def_cfa_offset 8
+ 226              		@ sp needed
+ 227 0038 10BD     		pop	{r4, pc}
+ 228              	.LVL13:
+ 229              	.L23:
+ 230 003a 00BF     		.align	2
+ 231              	.L22:
+ 232 003c 00000000 		.word	.LANCHOR4
+ 233 0040 00000000 		.word	.LC0
+ 234 0044 0C000000 		.word	.LC1
+ 235              		.cfi_endproc
+ 236              	.LFE69:
+ 238              		.section	.text.mainInitial,"ax",%progbits
+ 239              		.align	2
+ 240              		.global	mainInitial
+ 241              		.thumb
+ 242              		.thumb_func
+ 244              	mainInitial:
+ 245              	.LFB70:
+  71:MyCode/MainLoop.c **** 
+  72:MyCode/MainLoop.c **** void mainInitial(void)
+  73:MyCode/MainLoop.c **** {
+ 246              		.loc 1 73 0
+ 247              		.cfi_startproc
+ 248              		@ args = 0, pretend = 0, frame = 0
+ 249              		@ frame_needed = 0, uses_anonymous_args = 0
+ 250 0000 08B5     		push	{r3, lr}
+ 251              	.LCFI5:
+ 252              		.cfi_def_cfa_offset 8
+ 253              		.cfi_offset 3, -8
+ 254              		.cfi_offset 14, -4
+  74:MyCode/MainLoop.c ****     delay_init(72);
+ 255              		.loc 1 74 0
+ 256 0002 4820     		movs	r0, #72
+ 257 0004 FFF7FEFF 		bl	delay_init
+ 258              	.LVL14:
+ 259 0008 08BD     		pop	{r3, pc}
+ 260              		.cfi_endproc
+ 261              	.LFE70:
+ 263 000a 00BF     		.section	.text.mainLoop,"ax",%progbits
+ 264              		.align	2
+ 265              		.global	mainLoop
+ 266              		.thumb
+ 267              		.thumb_func
+ 269              	mainLoop:
+ 270              	.LFB71:
+  75:MyCode/MainLoop.c **** }
+  76:MyCode/MainLoop.c **** 
+  77:MyCode/MainLoop.c **** void mainLoop(void)
+  78:MyCode/MainLoop.c **** {
+ 271              		.loc 1 78 0
+ 272              		.cfi_startproc
+ 273              		@ args = 0, pretend = 0, frame = 0
+ 274              		@ frame_needed = 0, uses_anonymous_args = 0
+ 275 0000 10B5     		push	{r4, lr}
+ 276              	.LCFI6:
+ARM GAS  /tmp/cceGbsGe.s 			page 7
+
+
+ 277              		.cfi_def_cfa_offset 8
+ 278              		.cfi_offset 4, -8
+ 279              		.cfi_offset 14, -4
+ 280              	.LVL15:
+  79:MyCode/MainLoop.c ****     unsigned int tickMs = 0;
+  80:MyCode/MainLoop.c **** 
+  81:MyCode/MainLoop.c ****     tickMs = HAL_GetTick();
+ 281              		.loc 1 81 0
+ 282 0002 FFF7FEFF 		bl	HAL_GetTick
+ 283              	.LVL16:
+ 284 0006 0446     		mov	r4, r0
+ 285              	.LVL17:
+  82:MyCode/MainLoop.c **** 
+  83:MyCode/MainLoop.c ****     task_10Ms(tickMs);
+ 286              		.loc 1 83 0
+ 287 0008 FFF7FEFF 		bl	task_10Ms
+ 288              	.LVL18:
+  84:MyCode/MainLoop.c ****     task_50Ms(tickMs);
+ 289              		.loc 1 84 0
+ 290 000c 2046     		mov	r0, r4
+ 291 000e FFF7FEFF 		bl	task_50Ms
+ 292              	.LVL19:
+  85:MyCode/MainLoop.c ****     task_100Ms(tickMs);
+ 293              		.loc 1 85 0
+ 294 0012 2046     		mov	r0, r4
+ 295 0014 FFF7FEFF 		bl	task_100Ms
+ 296              	.LVL20:
+  86:MyCode/MainLoop.c ****     task_500Ms(tickMs);
+ 297              		.loc 1 86 0
+ 298 0018 2046     		mov	r0, r4
+ 299 001a FFF7FEFF 		bl	task_500Ms
+ 300              	.LVL21:
+  87:MyCode/MainLoop.c ****     task_1000Ms(tickMs);
+ 301              		.loc 1 87 0
+ 302 001e 2046     		mov	r0, r4
+ 303 0020 FFF7FEFF 		bl	task_1000Ms
+ 304              	.LVL22:
+  88:MyCode/MainLoop.c **** 
+  89:MyCode/MainLoop.c ****     delay_ms(5);
+ 305              		.loc 1 89 0
+ 306 0024 0520     		movs	r0, #5
+ 307 0026 FFF7FEFF 		bl	delay_ms
+ 308              	.LVL23:
+ 309 002a 10BD     		pop	{r4, pc}
+ 310              		.cfi_endproc
+ 311              	.LFE71:
+ 313              		.section	.bss.lastTick.5603,"aw",%nobits
+ 314              		.align	2
+ 315              		.set	.LANCHOR4,. + 0
+ 318              	lastTick.5603:
+ 319 0000 00000000 		.space	4
+ 320              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 321              		.align	2
+ 322              	.LC0:
+ 323 0000 7469636B 		.ascii	"tickMs = %d\000"
+ 323      4D73203D 
+ 323      20256400 
+ARM GAS  /tmp/cceGbsGe.s 			page 8
+
+
+ 324              	.LC1:
+ 325 000c 68656C6C 		.ascii	"hello world\015\012\000"
+ 325      6F20776F 
+ 325      726C640D 
+ 325      0A00
+ 326              		.section	.bss.lastTick.5591,"aw",%nobits
+ 327              		.align	2
+ 328              		.set	.LANCHOR1,. + 0
+ 331              	lastTick.5591:
+ 332 0000 00000000 		.space	4
+ 333              		.section	.bss.lastTick.5587,"aw",%nobits
+ 334              		.align	2
+ 335              		.set	.LANCHOR0,. + 0
+ 338              	lastTick.5587:
+ 339 0000 00000000 		.space	4
+ 340              		.section	.bss.lastTick.5595,"aw",%nobits
+ 341              		.align	2
+ 342              		.set	.LANCHOR2,. + 0
+ 345              	lastTick.5595:
+ 346 0000 00000000 		.space	4
+ 347              		.section	.bss.lastTick.5599,"aw",%nobits
+ 348              		.align	2
+ 349              		.set	.LANCHOR3,. + 0
+ 352              	lastTick.5599:
+ 353 0000 00000000 		.space	4
+ 354              		.text
+ 355              	.Letext0:
+ 356              		.file 2 "/opt/gcc-arm-none-eabi/arm-none-eabi/include/machine/_default_types.h"
+ 357              		.file 3 "/opt/gcc-arm-none-eabi/arm-none-eabi/include/sys/_stdint.h"
+ 358              		.file 4 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
+ 359              		.file 5 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h"
+ 360              		.file 6 "<built-in>"
+ 361              		.file 7 "MyCode/Delay.h"
+ 362              		.file 8 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h"
+ 363              		.file 9 "Drivers/CMSIS/Include/core_cm3.h"
+ARM GAS  /tmp/cceGbsGe.s 			page 9
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 MainLoop.c
+     /tmp/cceGbsGe.s:20     .text.task_10Ms:00000000 $t
+     /tmp/cceGbsGe.s:25     .text.task_10Ms:00000000 task_10Ms
+     /tmp/cceGbsGe.s:48     .text.task_10Ms:00000010 $d
+     /tmp/cceGbsGe.s:53     .text.task_50Ms:00000000 $t
+     /tmp/cceGbsGe.s:58     .text.task_50Ms:00000000 task_50Ms
+     /tmp/cceGbsGe.s:80     .text.task_50Ms:00000010 $d
+     /tmp/cceGbsGe.s:85     .text.task_100Ms:00000000 $t
+     /tmp/cceGbsGe.s:90     .text.task_100Ms:00000000 task_100Ms
+     /tmp/cceGbsGe.s:112    .text.task_100Ms:00000010 $d
+     /tmp/cceGbsGe.s:117    .text.task_500Ms:00000000 $t
+     /tmp/cceGbsGe.s:122    .text.task_500Ms:00000000 task_500Ms
+     /tmp/cceGbsGe.s:162    .text.task_500Ms:00000024 $d
+     /tmp/cceGbsGe.s:168    .text.task_1000Ms:00000000 $t
+     /tmp/cceGbsGe.s:173    .text.task_1000Ms:00000000 task_1000Ms
+     /tmp/cceGbsGe.s:232    .text.task_1000Ms:0000003c $d
+     /tmp/cceGbsGe.s:239    .text.mainInitial:00000000 $t
+     /tmp/cceGbsGe.s:244    .text.mainInitial:00000000 mainInitial
+     /tmp/cceGbsGe.s:264    .text.mainLoop:00000000 $t
+     /tmp/cceGbsGe.s:269    .text.mainLoop:00000000 mainLoop
+     /tmp/cceGbsGe.s:314    .bss.lastTick.5603:00000000 $d
+     /tmp/cceGbsGe.s:318    .bss.lastTick.5603:00000000 lastTick.5603
+     /tmp/cceGbsGe.s:321    .rodata.str1.4:00000000 $d
+     /tmp/cceGbsGe.s:327    .bss.lastTick.5591:00000000 $d
+     /tmp/cceGbsGe.s:331    .bss.lastTick.5591:00000000 lastTick.5591
+     /tmp/cceGbsGe.s:334    .bss.lastTick.5587:00000000 $d
+     /tmp/cceGbsGe.s:338    .bss.lastTick.5587:00000000 lastTick.5587
+     /tmp/cceGbsGe.s:341    .bss.lastTick.5595:00000000 $d
+     /tmp/cceGbsGe.s:345    .bss.lastTick.5595:00000000 lastTick.5595
+     /tmp/cceGbsGe.s:348    .bss.lastTick.5599:00000000 $d
+     /tmp/cceGbsGe.s:352    .bss.lastTick.5599:00000000 lastTick.5599
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+HAL_GPIO_TogglePin
+memset
+sprintf
+debug_str
+delay_init
+HAL_GetTick
+delay_ms
